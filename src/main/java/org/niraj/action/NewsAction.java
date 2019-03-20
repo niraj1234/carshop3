@@ -11,6 +11,7 @@ public class NewsAction {
 	@RequestMapping(value="/daily")
 	public String dailyNews(){
 		System.out.println("This is daily News Module Welcome page");
+		System.out.println("This is new line added");
 		return "dailyNews";
 	}
 	
