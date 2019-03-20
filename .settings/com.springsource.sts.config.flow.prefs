@@ -1,0 +1,5 @@
+//com.springsource.sts.config.flow.coordinates\:http\://www.springframework.org/schema/batch\:/carshop3/src/main/java/org/journaldev/txn/appBeansTxnJournalDev.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<graph/>
+//com.springsource.sts.config.flow.coordinates\:http\://www.springframework.org/schema/batch\:/carshop3/src/main/java/org/niraj/txn1/appBeans.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<graph/>
+//com.springsource.sts.config.flow.coordinates\:http\://www.springframework.org/schema/batch\:/carshop3/src/main/java/org/niraj/txn1/appBeansTxn.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<graph/>
+//com.springsource.sts.config.flow.coordinates\:http\://www.springframework.org/schema/batch\:/carshop3/src/main/webapp/WEB-INF/appBeans.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<graph/>
+eclipse.preferences.version=1

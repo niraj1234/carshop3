@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:batch="http://www.springframework.org/schema/batch"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/batch
+	    http://www.springframework.org/schema/batch/spring-batch.xsd
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+
+	<bean id="testAction" class="org.niraj.action.TestAction"
+		init-method="initTestAction" destroy-method="destroyTestAction">
+		<property name="messageForTest" value="Test Message News" />
+	</bean>
+
+   <bean id="appDaoJDBC" class="org.niraj.dao.AppDAOImpl">
+        <property name="jdbcTemplate"  ref="jdbcTemplateBean" />
+   </bean>
+
+   <bean id="jdbcTemplateBean"  class="org.springframework.jdbc.core.JdbcTemplate" >
+         <property name="dataSource" ref="dataSourceBean"/>
+   </bean>
+
+<!--
+   <bean id="dataSourceBean" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+         <property name="url" value="jdbc:mysql://localhost:3306/kogent" />
+         <property name="username" value="root" />
+         <property name="password" value="root" />
+   </bean>
+ -->
+
+
+
+<!--  Test this data source once the application is ready.DBCP jar needed. -->
+   <bean id="dataSourceBean" class="org.apache.commons.dbcp.BasicDataSource" >
+         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+         <property name="url" value="jdbc:mysql://localhost:3306/carshop3" />
+         <property name="username" value="root" />
+         <property name="password" value="root" />
+   </bean>
+
+<!-- For Jel -->
+<!--
+   <bean id="dataSourceBean" class="org.apache.commons.dbcp.BasicDataSource" >
+         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+         <property name="url" value="jdbc:mysql://node21786-SERV-A-11.cloud.cms500.com/carshop3" />
+         <property name="username" value="root" />
+         <property name="password" value="XVTtln32403" />
+   </bean>
+ -->
+
+
+	<bean id="sendGmail" class="org.niraj.util.SendGmail">
+	    <property name="senderUser" value="niraj@gmail.com"/>
+	    <property name="senderPass" value="niraj"/>
+	</bean>
+
+     <bean  id="employeeTrack" class="org.niraj.aspect.EmployeeAspect">
+             <property name="sleepTimeForUpdate" value="15000"/>
+             <property name="userRole" value="HR"/>
+             <property name="maxSalary" value="60000" />
+     </bean>
+
+     <bean id="loggingAspect" class="org.niraj.aspect.LoggingAspect" />
+
+</beans>

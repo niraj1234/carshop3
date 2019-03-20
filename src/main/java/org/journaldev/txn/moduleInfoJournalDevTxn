@@ -1,0 +1,12 @@
+JournalDev Txn Example
+===========================
+
+This module is not related to carshop3 application.
+This is standalone transaction example from Journaldev.com
+Working fine.
+
+Customer-Address combination is created in Transactional environment using Annotation.
+For test just pass the address as more than 20 characters and second query will get failed.
+At the same time first query rolled back. 
+
+
